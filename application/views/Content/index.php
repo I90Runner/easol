@@ -69,17 +69,15 @@
                             <?php echo $obj->description; ?>
                           </div>
                            <div class="btn-group btn-group-xs" role="group">
-                          <?php foreach ($footnotes as $key => $value) : $p = key($value); ?>
+                          <?php foreach ($footnotes as $title => $data) : reset($data); $p = key($data); ?>
                             <?php /* $key*/ ?>
-                           
-                              <?php $count = 0; foreach ($obj->$p as $k => $v) : $count++;  ?>
+                              <?php $count = 0; foreach ($obj->$p as $key => $val) : $count++;  ?>
                                 <?php if ($count <= 5) : ?>
-                                  <button type="button" style="border-color:<?= $colors[$key]?>;background-color:<?= $colors[$key]?>" class="btn btn-primary"><?= $v->$value[$p]; ?></button>
+                                  <button type="button" style="border-color:<?= $data['color']?>;background-color:<?= $data['color']?>" class="btn btn-primary"><?= $val->$data[$p]; ?></button>
                                 <?php elseif ($count == 6) : ?>
-                                  <button type="button" style="border-color:<?= $colors[$key]?>;background-color:<?= $colors[$key]?>" class="btn btn-primary">...</button>
+                                  <button type="button" style="border-color:<?= $data['color']?>;background-color:<?= $data['color']?>" class="btn btn-primary">...</button>
                                 <?php endif; ?>
                               <?php endforeach; ?>
-                           
                           <?php endforeach; ?>
                            </div>                      
                         </div>

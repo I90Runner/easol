@@ -117,18 +117,12 @@ class Content extends Easol_Controller {
                 $this->layout = null;
 
             // map the footnotes tags for iteration in the view to keep the code as DRY as possible.
-            $footnotes  = array(    'Subjects'  => array('subjects'       => 'name'),
-                                    'Standards' => array('alignments'     => 'name'),
-                                    'Grades'    => array('grades'         => 'grade'),
-                                    'Types'     => array('resource_types' => 'name'),
-                               
-                            );
-            $colors  = array(       'Subjects'  => '#337AB7',
-                                    'Standards' => '#7B1174',
-                                    'Grades'    => '#ACBB30',
-                                    'Types'     => '#2FB4AB'
-                               
-                            );
+            $footnotes  = array(    'Subjects'  => array('subjects'       => 'name',  'color'   => '#337AB7'),
+                                    'Standards' => array('alignments'     => 'name',  'color'   => '#7B1174'),
+                                    'Grades'    => array('grades'         => 'grade', 'color'   => '#ACBB30'),
+                                    'Types'     => array('resource_types' => 'name',  'color'   => '#2FB4AB'),
+                                );
+            
             $this->render($view, [
                 'gradelevels'       => $this->config->item('gradelevels'),
                 'standards'         => $this->config->item('standards'),
